@@ -16,17 +16,14 @@ class MainViewModel : ViewModel() {
     private val _pw = MutableLiveData<Boolean>()
     val pw: LiveData<Boolean> = _pw
 
-
     private val _chPw = MutableLiveData<Boolean>()
     val chPw: LiveData<Boolean> = _chPw
-
 
     private val _event = MutableLiveData<Boolean>()
     val event: LiveData<Boolean> = _event
 
-    private val _pwStr = MutableLiveData<String>()
-    private val _chPwStr = MutableLiveData<String>()
-
+    private var _pwStr = ""
+    private var _chPwStr = ""
 
 
     fun validation(str: String, flag: String) {
@@ -54,19 +51,20 @@ class MainViewModel : ViewModel() {
             }
 
             Constants.PASSWORD -> {
+                _pwStr = str
                 if (str.isNullOrEmpty()) {
                     _pw.value = false
                 } else {
+                    if (_chPwStr == str) {
+                        _chPw.value = true
+                    } else {
+                        _chPw.value = false
+                    }
                     val pass = str.trim()
                     if (Pattern.matches(Constants.PASS_VALIDATION, pass)) {
                         Log.e("cyc", "str-->${str}")
-                        _pwStr.postValue(str)
                         _pw.value = true
-                        if (_chPwStr.value == str) {
-                            _chPw.value = true
-                        } else {
-                            _chPw.value = false
-                        }
+
                     } else {
                         _pw.value = false
                     }
@@ -74,8 +72,8 @@ class MainViewModel : ViewModel() {
             }
 
             Constants.CHECKPASSWORD -> {
-                _chPwStr.postValue(str)
-                if (_pwStr.value == str) {
+                _chPwStr = str
+                if (_pwStr == str) {
                     _chPw.value = true
                 } else {
                     _chPw.value = false
