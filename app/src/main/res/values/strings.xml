@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BootCChallenge</string>
+    <string name="check_wrong_name">이름을 입력해주세요.</string>
+    <string name="check_wrong_email">올바른 이메일을 입력해주세요.</string>
+    <string name="check_wrong_pw">10자리 이상, 특수문자, 대문자 포함</string>
+    <string name="check_wrong_chpw">비밀번호가 다릅니다.</string>
+    <string name="name_tag">이름</string>
+    <string name="email_tag">이메일</string>
+    <string name="pw_tag">비밀번호</string>
+    <string name="pw_check_tag">비밀번호 확인</string>
+    <string name="signin_tag">회원가입</string>
+
+</resources>
