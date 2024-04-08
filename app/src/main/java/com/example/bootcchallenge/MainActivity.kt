@@ -49,13 +49,15 @@ class MainActivity : AppCompatActivity() {
                 viewModel.validation(s.toString(), pair.second)
             }
         }
-        list.forEach { pair ->
-            pair.first.setOnFocusChangeListener { view, b ->
-                if (b) {
-                    viewModel.validation(pair.first.text.toString(), pair.second)
-                }
-            }
-        }
+//        list.forEach { pair ->
+//            pair.first.setOnFocusChangeListener { view, b ->
+//                if(b){
+//                    viewModel.validation(pair.first.text.toString(), pair.second)
+//                }else{
+//                    viewModel.validation(pair.first.text.toString(), pair.second)
+//                }
+//            }
+//        }
     }
 
     private fun setUpObserve() {
